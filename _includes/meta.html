@@ -1,0 +1,68 @@
+<meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+<link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<style amp-custom>
+  {% capture include_to_scssify %}
+    {% include style.scss %}
+  {% endcapture %}
+  {{ include_to_scssify | scssify }}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Person",
+  "name": "{{site.name}}",
+  "url": "{{site.url}}"
+}
+</script>
+
+{% if page.excerpt %}
+{% if page.shortIntro %}
+<meta name="description" content="{{ page.shortIntro }}" />
+<meta property="og:description" content="{{ page.shortIntro }}" />
+<meta name="twitter:description" content="{{ page.shortIntro }}" />
+{% else %}
+<meta name="description" content="{{ page.excerpt| strip_html }}" />
+<meta property="og:description" content="{{ page.excerpt| strip_html }}" />
+<meta name="twitter:description" content="{{ page.excerpt| strip_html }}" />
+{% endif %}
+<link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{{ page.url }}" />
+<meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url }}" />
+{% if page.image %}
+<meta property="og:image" content="{{ site.url }}{{ site.baseurl }}{{page.cardImage}}" />
+<meta name="twitter:image" content="{{ site.url }}{{ site.baseurl }}{{page.cardImage}}" />
+{% else %}
+<meta property="og:image" content="{{ site.url }}{{ site.baseurl }}{{site.defaultimage}}" />
+<meta name="twitter:image" content="{{ site.url }}{{ site.baseurl }}{{site.defaultimage}}" />
+{% endif %}
+{% else %}
+<meta name="description" content="{{ site.description }}">
+<meta property="og:description" content="{{ site.description }}" />
+<meta name="twitter:description" content="{{ site.description }}" />
+<meta property="og:image" content="{{ site.url }}{{ site.baseurl }}{{site.defaultimage}}" />
+<meta name="twitter:image" content="{{ site.url }}{{ site.baseurl }}{{site.defaultimage}}" />
+<link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{{ page.url }}" />
+{% endif %}
+<meta property="fb:app_id" content="{{ site.facebookShareId }}" />
+<meta name="author" content="{{ site.name }}" />
+<meta property="og:type" content="website" />
+<meta name="twitter:creator" content="{{ site.twitterUserName}}" />
+
+{% if page.summaryLarge %}
+<meta name="twitter:card" content="summary_large_image" />
+{% else %}
+<meta name="twitter:card" content="summary" />
+{% endif %}
+
+
+{% if page.title %}
+<meta property="og:title" content="{{ page.title }}" />
+<meta name="twitter:title" content="{{ page.title }}" />
+<title>{{ page.title | default: site.github.repository_name }} | {{ site.title | default: site.github.repository_name }}</title>
+{% else %}
+<title>{{ site.title | default: site.github.repository_name }}</title>
+<meta property="og:title" content="{{ site.title }}" />
+<meta name="twitter:title" content="{{ site.title }}" />
+{% endif %}

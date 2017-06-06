@@ -1,5 +1,34 @@
-title: Minimal theme
-description: Minimal is a theme for GitHub Pages.
+title: AMP Minimal
+description: An AMP version of the Minimal theme for GitHub Pages or another Jekyll host.
 show_downloads: true
 google_analytics:
-theme: 
+# Your website URL (e.g. http://lafronzt.github.io or https://lafronz.com)
+# Used for Sitemap.xml and your RSS feed
+url:
+# If you're hosting your site at a Project repository on GitHub pages
+# (http://lafronzt.github.io/repository-name)
+# and NOT your User repository (http://lafronzt.github.io)
+# then add in the baseurl here, like this: "/repository-name"
+# otherwise leave as ""
+baseurl: ""
+# Used for the Schema Data, as well as for other SEO Data.
+# (e.g. Tyler La Fronz)
+name:
+# Used for the Twitter Card settings.
+# (e.g. @tlafronz)
+twitterUserName:
+# This is used for the OG settings when sharing to Facebook.
+# For more information visit https://developers.facebook.com/docs/sharing/opengraph
+facebookShareId:
+# If you would like your Twitter Cards or OG card information to
+# have a deaultImage place the linke here. (e.g. thumbnail.png)
+defaultimage: thumbnail.png
+
+sass:
+    sass_dir: _sass
+    style: compressed
+gems:
+  - jekyll-mentions
+  - jekyll-redirect-from
+  - jekyll-sitemap # Create a sitemap using the official Jekyll sitemap gem
+  - jekyll-feed # Create an Atom feed using the official Jekyll feed gem

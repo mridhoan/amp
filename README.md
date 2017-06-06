@@ -1,28 +1,21 @@
-# The Minimal theme
+# The AMP Minimal Theme
 
-[![Build Status](https://travis-ci.org/pages-themes/minimal.svg?branch=master)](https://travis-ci.org/pages-themes/minimal) [![Gem Version](https://badge.fury.io/rb/jekyll-theme-minimal.svg)](https://badge.fury.io/rb/jekyll-theme-minimal)
+This theme is based on the Minimal [Github Pages](https://pages.github.com/) theme, which is in turn based on @orderedlist's [Minimal](https://github.com/orderedlist/minimal).
 
-*Minimal is a Jekyll theme for GitHub Pages. You can [preview the theme to see what it looks like](http://pages-themes.github.io/minimal), or even [use it today](#usage).*
-
-![Thumbnail of minimal](thumbnail.png)
+The Theme has been updated to be compatible with Google's [AMP Project](https://www.ampproject.org/). Therefore their is custom information located below, in the [Google AMP Limitations](#google-amp-limitations) section, to help you use this theme.
 
 ## Usage
 
-To use the Minimal theme:
+1. Fork the project
 
-1. Add the following to your site's `_config.yml`:
+2. Download the [Zip](https://github.com/lafronzt/AMP-Minimal/archive/master.zip) and create your own repository.
 
-    ```yml
-    theme: jekyll-theme-minimal
+3. Clone the Project
+    ```git
+    git clone git@github.com:lafronzt/AMP-Minimal.git
     ```
 
-2. Optionally, if you'd like to preview your site on your computer, add the following to your site's `Gemfile`:
-
-    ```ruby
-    gem "github-pages", group: :jekyll_plugins
-    ```
-
-
+Than use this theme just like any other Jekyll theme.
 
 ## Customizing
 
@@ -44,15 +37,12 @@ google_analytics: [Your Google Analytics tracking ID]
 
 ### Stylesheet
 
-If you'd like to add your own custom styles:
+If you'd like to customize the styling:
 
-1. Create a file called `/assets/css/style.scss` in your site
-2. Add the following content to the top of the file, exactly as shown:
+1. Open the file `_includes/style.scss`
+2. Ensure that the following code is located at the top:
     ```scss
-    ---
-    ---
-
-    @import "{{ site.theme }}";
+    @import "jekyll-theme-minimal";
     ```
 3. Add any custom CSS (or Sass, including imports) you'd like immediately after the `@import` line
 
@@ -60,33 +50,80 @@ If you'd like to add your own custom styles:
 
 If you'd like to change the theme's HTML layout:
 
-1. [Copy the original template](https://github.com/pages-themes/minimal/blob/master/_layouts/default.html) from the theme's repository<br />(*Pro-tip: click "raw" to make copying easier*)
-2. Create a file called `/_layouts/default.html` in your site
-3. Paste the default layout content copied in the first step
-4. Customize the layout as you'd like
+1. Open and edit the file called `/_layouts/default.html` in your site
+2. Customize the layout as you'd like
 
-## Roadmap
+*Keep in mind: AMP does not allow inline styling, or JS files.*
 
-See the [open issues](https://github.com/pages-themes/minimal/issues) for a list of proposed features (and known issues).
+## [](#google-amp-limitations)Google AMP Limitations
 
-## Project philosophy
+Google AMP sets many
+[strict limits on what you can include in your web pages](https://www.ampproject.org/docs/get_started/technical_overview.html).
+A few of these are worth talking about:
 
-The Minimal theme is intended to make it quick and easy for GitHub Pages users to create their first (or 100th) website. The theme should meet the vast majority of users' needs out of the box, erring on the side of simplicity rather than flexibility, and provide users the opportunity to opt-in to additional complexity if they have specific needs or wish to further customize their experience (such as adding custom CSS or modifying the default layout). It should also look great, but that goes without saying.
+*Limitation: All CSS must be inline which is automaticly generated from the `_includes/style.scss`.*
 
-## Contributing
+Because of this, the main css file for this site is in `_includes/style.scss`
+instead of in the normal `css/` Jekyll folder. This css file is inlined
+into the header of every page via the special `scssify` filter in `_layouts/default.html`.
 
-Interested in contributing to Minimal? We'd love your help. Minimal is an open source project, built one contribution at a time by users like you. See [the CONTRIBUTING file](CONTRIBUTING.md) for instructions on how to contribute.
+*Limitation: Size all resources statically*
 
-### Previewing the theme locally
+Every image you include in your page *must* have a height and width. This also
+applies to other things like embedding videos or other resources. Check below
+for more details.
 
-If you'd like to preview the theme locally (for example, in the process of proposing a change):
+## Writing Posts with Google AMP
 
-1. Clone down the theme's repository (`git clone https://github.com/pages-themes/minimal`)
-2. `cd` into the theme's directory
-3. Run `script/bootstrap` to install the necessary dependencies
-4. Run `bundle exec jekyll serve` to start the preview server
-5. Visit [`localhost:4000`](http://localhost:4000) in your browser to preview the theme
+Writing posts works
+[just like it does normally in Jekyll](https://jekyllrb.com/docs/posts/)
+except when you want to include extra resources likes pictures, videos,
+embedded Twitter posts, etc.
 
-### Running tests
+Google AMP has it's own set of special html tags for including content. You
+should use these instead of normal Markdown or HTML tags.
 
-The theme contains a minimal test suite, to ensure a site with the theme would build successfully. To run the tests, simply run `script/cibuild`. You'll need to run `script/bootstrap` one before the test script will work.
+The one you are most likely to need is `<amp-img>`:
+
+### Images in your posts
+
+```
+<amp-img width="600" height="300" layout="responsive" src="/assets/images/your_picture.jpg"></amp-img>
+```
+
+### Embedding other types of content
+
+The AMP Project provides helpers for many other types of content like audio,
+ads, Google Analytics, etc.
+
+* Built-in AMP tags:
+ * https://github.com/ampproject/amphtml/blob/master/builtins/README.md
+
+* Extended AMP tags:
+ * https://github.com/ampproject/amphtml/blob/master/extensions/README.md
+
+## Validating your page with Google AMP
+
+Google AMP adds built-in validation logic to make sure your pages follow all
+the rules so they render as fast as possible.
+
+To check your page, just add `#development=1` to any url on your site and then
+check the javascript console in your browser.
+
+http://localhost:4000/#development=1
+
+You will either see a success message:
+
+```
+Powered by AMP ⚡ HTML – Version 1457112743399
+AMP validation successful.
+```
+
+Or you will see a list of errors to fix:
+
+```
+Powered by AMP ⚡ HTML – Version 1457112743399
+AMP validation had errors:
+The attribute 'style' may not appear in tag 'span'
+The attribute 'style' may not appear in tag 'div'
+```
