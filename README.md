@@ -17,6 +17,13 @@ The Theme has been updated to be compatible with Google's [AMP Project](https://
 
 Than use this theme just like any other Jekyll theme.
 
+## Examples of Use
+
+### [My Portfolio](https://work.lafronz.com)
+* Running with some custom CSS on top
+
+![](https://work.github.com/images/examples/AMP-Minimal-Example.png)
+
 ## Customizing
 
 ### Configuration variables
