@@ -20,9 +20,9 @@ Than use this theme just like any other Jekyll theme.
 ## Examples of Use
 
 ### [My Portfolio](https://work.lafronz.com)
-* Running with some custom CSS on top
+* Running with some custom CSS
 
-![](https://work.github.com/images/examples/AMP-Minimal-Example.png)
+![Tyler La Fronz's Portfolio](https://work.lafronz.com/images/examples/AMP-Minimal-Example.png)
 
 ## Customizing
 
