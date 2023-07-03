@@ -1,6 +1,6 @@
 title: AMP Minimal
 description: An AMP version of the Minimal theme for GitHub Pages or another Jekyll host.
-show_downloads: true
+show_downloads: false
 google_analytics:
 # Your website URL (e.g. http://lafronzt.github.io or https://lafronz.com)
 # Used for Sitemap.xml and your RSS feed
@@ -10,7 +10,7 @@ url:
 # and NOT your User repository (http://lafronzt.github.io)
 # then add in the baseurl here, like this: "/repository-name"
 # otherwise leave as ""
-baseurl: ""
+baseurl: "https://eftyp.github.io/AMP-Minima"
 # Used for the Schema Data, as well as for other SEO Data.
 # (e.g. Tyler La Fronz)
 name:
