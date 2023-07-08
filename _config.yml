@@ -1,6 +1,6 @@
 title: AMP Minimal
 description: An AMP version of the Minimal theme for GitHub Pages or another Jekyll host.
-show_downloads: false
+show_downloads: true
 google_analytics:
 # Your website URL (e.g. http://lafronzt.github.io or https://lafronz.com)
 # Used for Sitemap.xml and your RSS feed
