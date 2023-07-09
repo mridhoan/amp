@@ -7,4 +7,3 @@ layout: default
 _yay_
 
 [back](./)
-[01](./)
