@@ -5,7 +5,8 @@ layout: default
 Text can be **bold**, _italic_, or ~~strikethrough~~.
 
 [Link to another page](another-page).
-
+(another-page)
+https://github.com/mridhoan/amp/edit/master/index.md
 There should be whitespace between paragraphs.
 <div class="posts">
   {% for post in site.posts %}
