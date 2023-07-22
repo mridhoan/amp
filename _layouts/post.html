@@ -1,1 +1,63 @@
+<!doctype html>
+<html amp lang="en">
+  <head>
+    <meta charset="utf-8">
+    {% include meta.html %}
+
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <script async="" src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    <style amp-boilerplate="">body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate="">body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>{{ site.title | default: site.github.repository_name }}</h1>
+        <p>{{ site.description | default: site.github.project_tagline }}</p>
+
+        {% if site.github.is_project_page %}
+          <p class="view"><a href="">Home<small>{{ github_name }}</small></a></p>
+        {% endif %}
+
+        {% if site.github.is_user_page %}
+          <p class="view"><a href="{{ site.github.owner_url }}">View My GitHub Profile</a></p>
+        {% endif %}
+
+        {% if site.show_downloads %}
+          <ul>
+            <li><a href="{{ site.github.zip_url }}">Kontak<strong>Whatsapp</strong></a></li>
+            <li><a href="{{ site.github.tar_url }}">Lihat<strong>Produk</strong></a></li>
+            <li><a href="{{ site.github.repository_url }}">Lihat<strong>Review</strong></a></li>
+          </ul>
+        {% endif %}
+      </header>
+      <section>
+<amp-img width="640" height="400" layout="responsive" src="https://eftyp.github.io/public/logo.png"></amp-img>
+      {{ content }}
+<p>post</p>
+      </section>
+      <footer>
+        2023
+      </footer>
+    </div>
+
+  {% if site.google_analytics %}
+    <amp-analytics type="googleanalytics" id="analytics1">
+      <script type="application/json">
+      {
+        "vars": {
+          "account": "{{ site.google_analytics }}"
+        },
+        "triggers": {
+          "trackPageview": {
+            "on": "visible",
+            "request": "pageview"
+          }
+        }
+      }
+      </script>
+    </amp-analytics>
+  {% endif %}
+  </body>
+</html>
 
