@@ -5,30 +5,6 @@ layout: default
 Text can be **bold**, _italic_, or ~~strikethrough~~.
 
 [Link to another page](another-page).
-(another-page)
-https://github.com/mridhoan/amp/edit/master/index.md
-There should be whitespace between paragraphs.
-https://mridhoan.github.io/amp/
-<div class="posts">
-  {% for post in site.posts %}
-    <article class="post">
- <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-      </div>
-    </article>
-  {% endfor %}
-</div>
-
-{% for post in site.posts %}
-  <article>
-    <h2>
-      <a href="{{ post.url }}">
-        {{ post.title }}
-      </a>
-    </h2>
-    <time datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date_to_long_string }}</time>
-    {{ post.content }}
-  </article>
-{% endfor %}
 
 There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
 
