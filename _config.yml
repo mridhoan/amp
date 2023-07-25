@@ -1,6 +1,6 @@
 title: Blog
 description: Myblog
-show_downloads: false
+show_downloads: true
 google_analytics:
 # Your website URL (e.g. http://lafronzt.github.io or https://lafronz.com)
 # Used for Sitemap.xml and your RSS feed
