@@ -99,6 +99,11 @@ Berada di dunia di mana menjadi berbeda dari orang lain menciptakan stigmatisasi
       </section>
       <footer>
         2023
+        {% if page.related %}
+        <div class="wrapper">
+          <h3>See also</h3>
+          {% include related.html %}
+        </div>
       </footer>
     </div>
 
